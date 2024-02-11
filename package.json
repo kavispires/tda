@@ -1,5 +1,5 @@
 {
-  "name": "tdtimers",
+  "name": "tda",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@types/react-router-dom": "^5.3.3",
+    "animate.css": "^4.1.1",
     "antd": "^5.13.3",
     "clsx": "^2.1.0",
     "lodash": "^4.17.21",

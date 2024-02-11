@@ -1,3 +1,3 @@
-# TD Timers
+# TD Assistant
 
-Run timers for TD games live.
+Run timers and scoring for TD games live.

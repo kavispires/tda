@@ -13,9 +13,6 @@
 
   &__content {
     flex: 1;
-    padding: get-unit(4 2);
-    display: grid;
-    place-items: center;
     overflow-y: auto;
   }
 
@@ -39,5 +36,17 @@
 
   &--active {
     border-bottom: get-unit(2) solid get-color('pink', 3);
+  }
+}
+
+.content {
+  display: grid;
+
+  &--padded {
+    padding: get-unit(4 2);
+  }
+
+  &--center {
+    place-items: center;
   }
 }

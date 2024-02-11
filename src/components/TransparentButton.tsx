@@ -21,7 +21,7 @@ type TransparentButtonProps = {
   /**
    * Behavior when the mouse hovers the button (default: scale)
    */
-  hoverType?: 'scale' | 'background';
+  hoverType?: 'scale' | 'background' | 'none';
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 /**
@@ -35,7 +35,6 @@ export const TransparentButton = ({
   hoverType = 'scale',
   ...rest
 }: TransparentButtonProps) => {
-  console.log({ activeClass, children });
   return (
     <button
       className={clsx(

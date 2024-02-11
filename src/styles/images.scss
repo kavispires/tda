@@ -1,0 +1,10 @@
+.timer-image {
+  width: clamp(300px, 90vw, 500px);
+  border-radius: $border-radius;
+  margin: get-unit(4);
+
+  &__image {
+    width: 100%;
+    border-radius: $border-radius;
+  }
+}

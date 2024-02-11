@@ -11,11 +11,11 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <Layout className="app">
-      <Header />
+    <HashRouter>
+      <Layout className="app">
+        <Header />
 
-      <Layout.Content className="app__content">
-        <HashRouter>
+        <Layout.Content className="app__content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="timers" element={<Timers />}>
@@ -26,11 +26,11 @@ function App() {
               <Route path=":ruleId" element={<RuleBook />} />
             </Route>
           </Routes>
-        </HashRouter>
-      </Layout.Content>
+        </Layout.Content>
 
-      <Footer />
-    </Layout>
+        <Footer />
+      </Layout>
+    </HashRouter>
   );
 }
 

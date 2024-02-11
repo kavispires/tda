@@ -50,15 +50,25 @@
 
 .button-selectors-container {
   margin: auto;
-
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  padding: get-unit(10 0);
+
+  &--condensed {
+    background: get-color('blue', 8, 0.45);
+    overflow-x: auto;
+    padding: get-unit(2 4);
+  }
 }
 
 .game-image-button {
   width: clamp(300px, 60vw, 500px);
   border-radius: $border-radius;
+
+  &--condensed {
+    width: clamp(50px, 30vw, 150px);
+    padding: get-unit(1);
+  }
 
   &__image {
     width: 100%;

@@ -8,7 +8,6 @@ import { TransparentButton } from './TransparentButton';
 export function Footer() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  console.log('pathname', pathname);
 
   const goToPage = (page: string) => navigate(page);
 

@@ -1,0 +1,42 @@
+$border-color: rgba(253, 253, 253, 0.12);
+
+@for $i from 1 through 12 {
+  .m-#{$i} {
+    margin: get-unit($i);
+  }
+
+  .mx-#{$i} {
+    margin-left: get-unit($i);
+    margin-right: get-unit($i);
+  }
+
+  .my-#{$i} {
+    padding-top: get-unit($i);
+    padding-bottom: get-unit($i);
+  }
+
+  .px-#{$i} {
+    padding-left: get-unit($i);
+    padding-right: get-unit($i);
+  }
+
+  .py-#{$i} {
+    padding-top: get-unit($i);
+    padding-bottom: get-unit($i);
+  }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  background: hsl(209, 97%, 13%);
+  color: rgba($color: #ffffff, $alpha: 0.85);
+}

@@ -1,0 +1,43 @@
+.app {
+  height: 100svh;
+  background: linear-gradient(-45deg, #3e1e68, #44bba4, #3a7ca5, #f2e863, #f45b69, #9261d1, #3e1e68);
+  background-size: 1000% 1000%;
+  animation: gradient 60s ease infinite;
+
+  &__header {
+    text-align: center;
+    color: get-color('white');
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+
+  &__content {
+    flex: 1;
+    padding: get-unit(4 2);
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    border-top: get-unit(1) solid get-color('pink', 4);
+    background: get-color('pink');
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    justify-content: space-between;
+    gap: get-unit(2);
+    position: sticky;
+    bottom: 0;
+  }
+}
+
+.footer-nav-button {
+  padding: get-unit(1);
+  border: get-uniT(2) solid transparent;
+  border-radius: $border-radius;
+
+  &--active {
+    border-bottom: get-unit(2) solid get-color('pink', 3);
+  }
+}

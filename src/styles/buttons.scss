@@ -1,0 +1,67 @@
+.transparent-button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 2px solid transparent;
+  transition: transform 250ms;
+
+  &--scale {
+    &:hover {
+      transform: scale(1.1);
+
+      &:disabled {
+        transform: none;
+      }
+    }
+  }
+
+  &--sepia {
+    &:hover {
+      filter: sepia(100%);
+
+      &:disabled {
+        filter: grayscale(0.9);
+      }
+    }
+  }
+
+  &--active {
+    border: 2px solid get-color('white');
+  }
+
+  &:disabled {
+    filter: grayscale(0.9);
+    cursor: not-allowed;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.button-selectors-container {
+  margin: auto;
+
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.game-image-button {
+  width: clamp(300px, 60vw, 500px);
+  border-radius: $border-radius;
+
+  &__image {
+    width: 100%;
+    border-radius: $border-radius;
+  }
+}

@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd';
+import { Footer } from 'components/Footer';
+import { Header } from 'components/Header';
+import { Home } from 'pages/Home';
+import { RuleBook } from 'pages/RuleBook';
+import { Rules } from 'pages/Rules';
+import { Scorer } from 'pages/Scorer';
+import { Timer } from 'pages/Timer';
+import { Timers } from 'pages/Timers';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="app">
+      <Header />
+
+      <Layout.Content className="app__content">
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="timers" element={<Timers />}>
+              <Route path=":timerId" element={<Timer />} />
+            </Route>
+            <Route path="Scorer" element={<Scorer />} />
+            <Route path="Rules" element={<Rules />}>
+              <Route path=":ruleId" element={<RuleBook />} />
+            </Route>
+          </Routes>
+        </HashRouter>
+      </Layout.Content>
+
+      <Footer />
+    </Layout>
   );
 }
 

@@ -1,0 +1,11 @@
+@import 'antd/dist/reset.css';
+@import 'animate.css';
+
+// Utils
+@import './functions';
+@import './constants';
+
+// Global
+@import './global';
+@import './app.scss';
+@import './buttons.scss';

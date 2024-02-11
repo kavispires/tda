@@ -1,3 +1,5 @@
+import { Content } from 'components/Content';
+
 export function Scorer() {
-  return <div>Scorer</div>;
+  return <Content>Scorer</Content>;
 }

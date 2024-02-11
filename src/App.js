@@ -15,18 +15,16 @@ function App() {
       <Layout className="app">
         <Header />
 
-        <Layout.Content className="app__content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="timers" element={<Timers />}>
-              <Route path=":timerId" element={<Timer />} />
-            </Route>
-            <Route path="Scorer" element={<Scorer />} />
-            <Route path="Rules" element={<Rules />}>
-              <Route path=":ruleId" element={<RuleBook />} />
-            </Route>
-          </Routes>
-        </Layout.Content>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="timers" element={<Timers />}>
+            <Route path=":timerId" element={<Timer />} />
+          </Route>
+          <Route path="Scorer" element={<Scorer />} />
+          <Route path="Rules" element={<Rules />}>
+            <Route path=":ruleId" element={<RuleBook />} />
+          </Route>
+        </Routes>
 
         <Footer />
       </Layout>

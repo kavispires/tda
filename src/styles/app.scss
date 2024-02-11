@@ -14,6 +14,13 @@
   &__content {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 100vw;
+
+    &--centered {
+      display: grid;
+      place-items: center;
+    }
   }
 
   &__footer {
@@ -41,6 +48,7 @@
 
 .content {
   display: grid;
+  max-width: 100vw;
 
   &--padded {
     padding: get-unit(4 2);

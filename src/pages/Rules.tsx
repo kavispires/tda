@@ -1,3 +1,5 @@
+import { Content } from 'components/Content';
+
 export function Rules() {
-  return <div>Rules</div>;
+  return <Content>Rules</Content>;
 }

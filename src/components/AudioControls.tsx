@@ -35,8 +35,9 @@ export function AudioControls({ game }: AudioControlsProps) {
     controls.volume(1);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const percentage = Math.round((state.time / game.timerCutoff) * 100);
-  console.log(state.time, percentage);
+  const lead = game.timer?.lead ?? 0;
+  const cutoff = (game.timer?.cutoff ?? state.duration) - lead;
+  const percentage = state.time < lead ? 0 : Math.round(((state.time - lead) / cutoff) * 100);
 
   return (
     <Space direction="vertical">

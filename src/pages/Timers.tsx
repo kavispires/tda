@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { Content } from 'components/Content';
 import { TimerSelection } from 'components/TimersSelection';
 import { Outlet, useParams } from 'react-router-dom';
 
@@ -7,9 +7,9 @@ export function Timers() {
   const isCondensed = !!timerId;
 
   return (
-    <div className={clsx(isCondensed ? 'content' : 'content--center')}>
+    <Content centered={!isCondensed}>
       <TimerSelection />
       <Outlet />
-    </div>
+    </Content>
   );
 }

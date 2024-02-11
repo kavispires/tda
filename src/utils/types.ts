@@ -5,5 +5,9 @@ export type Game = {
   title: string;
   banner: string;
   audio: string;
-  timerCutoff: number;
+  timer?: {
+    lead: number;
+    cutoff: number;
+    icon: React.ComponentType;
+  };
 };

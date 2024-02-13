@@ -7,6 +7,7 @@ import { Game } from './types';
 export const PUBLIC_URL = {
   IMAGES: `${process.env.PUBLIC_URL}/images`,
   AUDIO: `${process.env.PUBLIC_URL}/audio`,
+  DATA: `${process.env.PUBLIC_URL}/data`,
 };
 
 export const GAMES = {
@@ -45,8 +46,8 @@ export const TIMERS_GAMES: Game[] = [
     banner: `${PUBLIC_URL.IMAGES}/retrato-falado-pt.jpg`,
     audio: 'retrato-falado.mp3',
     timer: {
-      lead: 0,
-      cutoff: 0,
+      lead: 2,
+      cutoff: 116,
       icon: TimerIcon,
     },
   },

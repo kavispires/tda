@@ -1,3 +1,5 @@
+import { ProgressProps } from 'antd';
+
 export type Language = 'en' | 'pt';
 
 export type Game = {
@@ -9,5 +11,11 @@ export type Game = {
     lead: number;
     cutoff: number;
     icon: React.ComponentType;
+    type: ProgressProps['type'];
   };
+};
+
+export type ItemCard = {
+  id: string;
+  name: string;
 };

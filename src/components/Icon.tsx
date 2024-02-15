@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 // Ant Design Resources
 import { Avatar, AvatarProps } from 'antd';
 
-interface IconProps extends AvatarProps {
+export interface IconProps extends AvatarProps {
   /**
    * The TD icon component
    */

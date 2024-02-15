@@ -1,11 +1,12 @@
 import { Progress, Space } from 'antd';
-import { useAudio } from 'react-use';
-import { PUBLIC_URL } from 'utils/constants';
-import { Game } from 'utils/types';
-import { TransparentButton } from './TransparentButton';
-import { Icon } from './Icon';
 import { PanicIcon, PauseIcon, PlayIcon, RestartIcon } from 'icons';
 import { useEffect } from 'react';
+import { useAudio, useVibrate } from 'react-use';
+import { PUBLIC_URL } from 'utils/constants';
+import { Game } from 'utils/types';
+
+import { Icon, IconProps } from './Icon';
+import { TransparentButton } from './TransparentButton';
 
 type AudioControlsProps = {
   game: Game;
@@ -39,14 +40,16 @@ export function AudioControls({ game }: AudioControlsProps) {
   const cutoff = (game.timer?.cutoff ?? state.duration) - lead;
   const percentage = state.time < lead ? 0 : Math.round(((state.time - lead) / cutoff) * 100);
 
+  const EndIcon = game.timer?.icon ?? PanicIcon;
+
   return (
     <Space direction="vertical">
       {audio}
       <Progress
         percent={percentage}
-        type="circle"
+        type={game.timer?.type ?? 'circle'}
         format={(percent) =>
-          (percent ?? 0) < 100 ? `${percent}%` : <Icon icon={<PanicIcon />} size="large" />
+          (percent ?? 0) < 100 ? `${percent}%` : <EndIconVibrate size="large" icon={<EndIcon />} />
         }
       />
       <Space size="large">
@@ -59,4 +62,10 @@ export function AudioControls({ game }: AudioControlsProps) {
       </Space>
     </Space>
   );
+}
+
+function EndIconVibrate({ icon }: IconProps) {
+  useVibrate(true, [300, 100, 200, 100, 1000, 300], false);
+
+  return <Icon icon={icon} />;
 }

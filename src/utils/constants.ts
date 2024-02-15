@@ -17,8 +17,8 @@ export const GAMES = {
   DETETIVES_IMAGINATIVOS: 'detetives-imaginativos',
 };
 
-export const TIMERS_GAMES: Game[] = [
-  {
+export const TIMERS_GAMES: Record<string, Game> = {
+  [GAMES.ARTE_RUIM]: {
     id: GAMES.ARTE_RUIM,
     title: 'Arte Ruim Pra Dedéu',
     banner: `${PUBLIC_URL.IMAGES}/arte-ruim-pt.jpg`,
@@ -27,20 +27,22 @@ export const TIMERS_GAMES: Game[] = [
       lead: 2,
       cutoff: 10,
       icon: PanicIcon,
+      type: 'dashboard',
     },
   },
-  {
+  [GAMES.SONHINHO_BOM]: {
     id: GAMES.SONHINHO_BOM,
     title: 'Sonhinho Bom',
     banner: `${PUBLIC_URL.IMAGES}/sonhinho-bom-pt.jpg`,
     audio: 'sonhinho-bom.mp3',
     timer: {
-      lead: 0,
-      cutoff: 0,
+      lead: 6,
+      cutoff: 126,
       icon: PanicIcon,
+      type: 'line',
     },
   },
-  {
+  [GAMES.RETRATO_FALADO]: {
     id: GAMES.RETRATO_FALADO,
     title: 'Retrato Falado Monstruoso',
     banner: `${PUBLIC_URL.IMAGES}/retrato-falado-pt.jpg`,
@@ -49,9 +51,10 @@ export const TIMERS_GAMES: Game[] = [
       lead: 2,
       cutoff: 116,
       icon: TimerIcon,
+      type: 'line',
     },
   },
-  {
+  [GAMES.DETETIVES_IMAGINATIVOS]: {
     id: GAMES.DETETIVES_IMAGINATIVOS,
     title: 'Detetives Imaginativos',
     banner: `${PUBLIC_URL.IMAGES}/detetives-imaginativos-pt.jpg`,
@@ -60,9 +63,10 @@ export const TIMERS_GAMES: Game[] = [
       lead: 0,
       cutoff: 0,
       icon: TimerIcon,
+      type: 'dashboard',
     },
   },
-];
+};
 
 export const SCORING_GAMES = [];
 

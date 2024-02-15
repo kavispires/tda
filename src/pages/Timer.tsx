@@ -6,7 +6,7 @@ import { TIMERS_GAMES } from 'utils/constants';
 export function Timer() {
   const { timerId } = useParams();
 
-  const game = TIMERS_GAMES.find((game) => game.id === timerId);
+  const game = TIMERS_GAMES[timerId ?? ''];
 
   if (!game) {
     return <Alert message="Jogo não encontrado" type="error" showIcon />;
@@ -18,7 +18,7 @@ export function Timer() {
         <Image preview={false} src={game?.banner} className="timer-image__image" />
       </div>
 
-      <AudioControls game={game} />
+      <AudioControls game={game} key={game.id} />
     </Space>
   );
 }

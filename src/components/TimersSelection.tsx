@@ -4,6 +4,8 @@ import { TIMERS_GAMES } from 'utils/constants';
 import { useNavigate, useParams } from 'react-router-dom';
 import clsx from 'clsx';
 
+const timers = Object.values(TIMERS_GAMES);
+
 export function TimerSelection() {
   const { timerId } = useParams();
   const isCondensed = !!timerId;
@@ -17,7 +19,7 @@ export function TimerSelection() {
       className={clsx('button-selectors-container', isCondensed && 'button-selectors-container--condensed')}
       wrap={!isCondensed}
     >
-      {TIMERS_GAMES.map((game) => (
+      {timers.map((game) => (
         <TransparentButton
           key={game.id}
           className={clsx('game-image-button', isCondensed && 'game-image-button--condensed')}

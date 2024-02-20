@@ -21,6 +21,10 @@
       display: grid;
       place-items: center;
     }
+
+    &--padded {
+      padding: get-unit(4);
+    }
   }
 
   &__footer {

@@ -1,5 +1,5 @@
 import { PanicIcon, TimerIcon } from 'icons';
-import { Game } from './types';
+import { AvatarEntry, Game } from './types';
 
 /**
  * List of urls residing in the public folder
@@ -71,3 +71,66 @@ export const TIMERS_GAMES: Record<string, Game> = {
 export const SCORING_GAMES = [];
 
 export const RULES_GAMES = [];
+
+export const AVATARS: AvatarEntry[] = [
+  {
+    id: '0',
+    name: 'Sabiá',
+    used: false,
+  },
+  {
+    id: '6',
+    name: 'Raposa',
+    used: false,
+  },
+  {
+    id: '9',
+    name: 'Lontra',
+    used: false,
+  },
+  {
+    id: '11',
+    name: 'Abelha',
+    used: false,
+  },
+  {
+    id: '21',
+    name: 'Salamandra',
+    used: false,
+  },
+  {
+    id: '25',
+    name: 'Quiuí',
+    used: false,
+  },
+  {
+    id: '32',
+    name: 'Peixe',
+    used: false,
+  },
+  {
+    id: '35',
+    name: 'Borboleta',
+    used: false,
+  },
+  {
+    id: '41',
+    name: 'Ornitorrinco',
+    used: false,
+  },
+  {
+    id: '43',
+    name: 'Axolote',
+    used: false,
+  },
+  {
+    id: 'A',
+    name: 'Robô',
+    used: false,
+  },
+  {
+    id: 'T',
+    name: 'Alienígena',
+    used: false,
+  },
+];

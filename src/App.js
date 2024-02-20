@@ -9,6 +9,7 @@ import { Timers } from 'pages/Timers';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider, Layout, App as AntApp } from 'antd';
+import { PlayersProvider } from 'context/PlayersProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,24 +32,26 @@ function App() {
         }}
       >
         <AntApp>
-          <HashRouter>
-            <Layout className="app">
-              <Header />
+          <PlayersProvider>
+            <HashRouter>
+              <Layout className="app">
+                <Header />
 
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="timers" element={<Timers />}>
-                  <Route path=":timerId" element={<Timer />} />
-                </Route>
-                <Route path="Scorer" element={<Scorer />} />
-                <Route path="Rules" element={<Rules />}>
-                  <Route path=":ruleId" element={<RuleBook />} />
-                </Route>
-              </Routes>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="timers" element={<Timers />}>
+                    <Route path=":timerId" element={<Timer />} />
+                  </Route>
+                  <Route path="Scorer" element={<Scorer />} />
+                  <Route path="Rules" element={<Rules />}>
+                    <Route path=":ruleId" element={<RuleBook />} />
+                  </Route>
+                </Routes>
 
-              <Footer />
-            </Layout>
-          </HashRouter>
+                <Footer />
+              </Layout>
+            </HashRouter>
+          </PlayersProvider>
         </AntApp>
       </ConfigProvider>
     </QueryClientProvider>

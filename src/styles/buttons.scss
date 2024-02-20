@@ -77,3 +77,17 @@
     border-radius: $border-radius;
   }
 }
+
+.avatar-selection-button {
+  transform: scale(0.85);
+
+  &:disabled {
+    opacity: 0.25;
+    transform: scale(0.5);
+  }
+
+  &--active {
+    transform: scale(1);
+    border: 3px solid get-color('black');
+  }
+}

@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import { BasicProps } from 'antd/es/layout/layout';
 import { clsx } from 'clsx';
 import { ReactNode } from 'react';
 
@@ -7,7 +8,7 @@ type ContentProps = {
   children?: ReactNode;
   padded?: boolean;
   className?: string;
-};
+} & BasicProps;
 
 export function Content({ centered, children, padded, className }: ContentProps) {
   return (

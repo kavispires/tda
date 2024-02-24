@@ -4,12 +4,13 @@ import { Home } from 'pages/Home';
 import { RuleBook } from 'pages/RuleBook';
 import { Rules } from 'pages/Rules';
 import { Scorer } from 'pages/Scorer';
-import { Timer } from 'pages/Timer';
-import { Timers } from 'pages/Timers';
+import { Game } from 'pages/Game';
+import { Games } from 'pages/Games';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider, Layout, App as AntApp } from 'antd';
 import { PlayersProvider } from 'context/PlayersProvider';
+import { SonhinhoBomProvider } from 'context/SonhinhoBomProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,28 +32,29 @@ function App() {
           },
         }}
       >
-        <AntApp>
-          <PlayersProvider>
-            <HashRouter>
-              <Layout className="app">
-                <Header />
+        <HashRouter>
+          <AntApp>
+            <PlayersProvider>
+              <SonhinhoBomProvider>
+                <Layout className="app">
+                  <Header />
 
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="timers" element={<Timers />}>
-                    <Route path=":timerId" element={<Timer />} />
-                  </Route>
-                  <Route path="Scorer" element={<Scorer />} />
-                  <Route path="Rules" element={<Rules />}>
-                    <Route path=":ruleId" element={<RuleBook />} />
-                  </Route>
-                </Routes>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="games" element={<Games />} />
+                    <Route path="games/:gameId" element={<Game />} />
+                    <Route path="Scorer" element={<Scorer />} />
+                    <Route path="Rules" element={<Rules />}>
+                      <Route path=":ruleId" element={<RuleBook />} />
+                    </Route>
+                  </Routes>
 
-                <Footer />
-              </Layout>
-            </HashRouter>
-          </PlayersProvider>
-        </AntApp>
+                  <Footer />
+                </Layout>
+              </SonhinhoBomProvider>
+            </PlayersProvider>
+          </AntApp>
+        </HashRouter>
       </ConfigProvider>
     </QueryClientProvider>
   );

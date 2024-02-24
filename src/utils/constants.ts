@@ -12,7 +12,7 @@ export const PUBLIC_URL = {
 
 export const GAMES = {
   ARTE_RUIM: 'arte-ruim',
-  SONHINHO_BOM: 'soninho-bom',
+  SONHINHO_BOM: 'sonhinho-bom',
   RETRATO_FALADO: 'retrato-falado',
   DETETIVES_IMAGINATIVOS: 'detetives-imaginativos',
 };

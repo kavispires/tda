@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { RulesIcon, ScoreIcon, TimerIcon } from 'icons';
+import { GameIcon, RulesIcon, ScoreIcon } from 'icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Icon } from './Icon';
@@ -17,10 +17,10 @@ export function Footer() {
         className="footer-nav-button"
         activeClass="footer-nav-button--active"
         active={pathname.includes('timers')}
-        onClick={() => goToPage('/timers')}
+        onClick={() => goToPage('/games')}
         hoverType="background"
       >
-        <Icon icon={<TimerIcon />} size="large" />
+        <Icon icon={<GameIcon />} size="large" />
       </TransparentButton>
 
       <TransparentButton

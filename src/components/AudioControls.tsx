@@ -10,12 +10,15 @@ import { TransparentButton } from './TransparentButton';
 
 type AudioControlsProps = {
   game: Game;
+  onEnded?: () => void;
+  autoPlay?: boolean;
 };
 
-export function AudioControls({ game }: AudioControlsProps) {
+export function AudioControls({ game, onEnded = () => {}, autoPlay = false }: AudioControlsProps) {
   const [audio, state, controls] = useAudio({
     src: `${PUBLIC_URL.AUDIO}/${game.audio}`,
-    autoPlay: false,
+    autoPlay,
+    onEnded,
   });
 
   const onRestart = () => {

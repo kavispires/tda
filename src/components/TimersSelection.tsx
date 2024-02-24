@@ -11,7 +11,7 @@ export function TimerSelection() {
   const isCondensed = !!timerId;
   const navigate = useNavigate();
 
-  const goToTimer = (timerId: string) => navigate(`/timers/${timerId}`);
+  const goToTimer = (timerId: string) => navigate(`/games/${timerId}`);
 
   return (
     <Space

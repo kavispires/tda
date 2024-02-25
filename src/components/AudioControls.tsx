@@ -16,7 +16,7 @@ type AudioControlsProps = {
 
 export function AudioControls({ game, onEnded = () => {}, autoPlay = false }: AudioControlsProps) {
   const [audio, state, controls] = useAudio({
-    src: `${PUBLIC_URL.AUDIO}/${game.audio}`,
+    src: `${PUBLIC_URL.AUDIO}/${game.timer?.audio}`,
     autoPlay,
     onEnded,
   });

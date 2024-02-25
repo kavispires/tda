@@ -8,13 +8,14 @@ export type Game = {
   id: string;
   title: string;
   banner: string;
-  audio: string;
   timer?: {
+    audio: string;
     lead: number;
     cutoff: number;
     icon: React.ComponentType;
     type: ProgressProps['type'];
   };
+  rules?: string[];
 };
 
 export type ItemCard = {

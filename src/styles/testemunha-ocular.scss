@@ -1,0 +1,22 @@
+.suspects {
+  display: grid;
+  grid-template-columns: repeat(3, 3em);
+  font-size: 2em;
+  gap: get-unit(2);
+  place-items: center;
+  margin: get-unit(8 0);
+}
+
+.suspect {
+  background: get-color('white', 1, 0.85);
+  width: 100%;
+  height: 3em;
+  border-radius: $border-radius;
+  display: grid;
+  place-items: center;
+
+  &--target {
+    background: get-color('red', 4, 0.85);
+    border-radius: 50%;
+  }
+}

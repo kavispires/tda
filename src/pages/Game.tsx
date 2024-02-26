@@ -2,13 +2,14 @@ import { Alert, Image, Space } from 'antd';
 import { AudioControls } from 'components/AudioControls';
 import { Content } from 'components/Content';
 import { SonhinhoBomGame } from 'components/SonhinhoBom/SonhinhoBomGame';
+import { TestemunhaOcularRandomizer } from 'components/TestemunhaOcularRandomizer';
 import { useParams } from 'react-router-dom';
-import { GAMES, TIMERS_GAMES } from 'utils/constants';
+import { GAMES, ASSISTED_GAMES } from 'utils/constants';
 
 export function Game() {
   const { gameId } = useParams();
 
-  const game = TIMERS_GAMES[gameId ?? ''];
+  const game = ASSISTED_GAMES[gameId ?? ''];
 
   if (!game) {
     return <Alert message="Jogo não encontrado" type="error" showIcon />;
@@ -16,6 +17,10 @@ export function Game() {
 
   if (game.id === GAMES.SONHINHO_BOM) {
     return <SonhinhoBomGame />;
+  }
+
+  if (game.id === GAMES.TESTEMUNHA_OCULAR) {
+    return <TestemunhaOcularRandomizer />;
   }
 
   return (

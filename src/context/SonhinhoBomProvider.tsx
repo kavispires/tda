@@ -2,7 +2,7 @@ import { PreloadItems } from 'components/SonhinhoBom/PreloadItems';
 import { shuffle } from 'lodash';
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { PUBLIC_URL, TIMERS_GAMES } from 'utils/constants';
+import { PUBLIC_URL, ASSISTED_GAMES } from 'utils/constants';
 import { Dictionary, Game, ItemCard } from 'utils/types';
 
 import { useQuery } from '@tanstack/react-query';
@@ -31,7 +31,7 @@ export const SonhinhoBomProvider = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
   const gameId = pathname.split('/').pop();
 
-  const game = TIMERS_GAMES[gameId ?? ''];
+  const game = ASSISTED_GAMES[gameId ?? ''];
 
   // Screen to be displayed
   const [screen, setScreen] = useState('start');

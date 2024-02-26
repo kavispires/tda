@@ -6,7 +6,7 @@ import { Item } from 'components/Sprites';
 import { useSonhinhoBom } from 'context/SonhinhoBomProvider';
 import { useCardWidth } from 'hooks';
 import { DreamIcon, NightmareIcon, WrongIcon } from 'icons';
-import { GAMES, TIMERS_GAMES } from 'utils/constants';
+import { GAMES, ASSISTED_GAMES } from 'utils/constants';
 
 export function RoundScreen() {
   const {
@@ -34,7 +34,7 @@ export function RoundScreen() {
         </Typography.Paragraph>
 
         <AudioControls
-          game={TIMERS_GAMES[GAMES.SONHINHO_BOM]}
+          game={ASSISTED_GAMES[GAMES.SONHINHO_BOM]}
           onEnded={() => setScreen('recollection')}
           autoPlay
         />

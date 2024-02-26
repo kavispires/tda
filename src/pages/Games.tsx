@@ -1,5 +1,5 @@
+import { AssistantSelection } from 'components/AssistantSelection';
 import { Content } from 'components/Content';
-import { TimerSelection } from 'components/TimersSelection';
 import { Outlet, useParams } from 'react-router-dom';
 
 export function Games() {
@@ -8,7 +8,7 @@ export function Games() {
 
   return (
     <Content centered={!isCondensed}>
-      <TimerSelection />
+      <AssistantSelection />
       <Outlet />
     </Content>
   );

@@ -1,12 +1,12 @@
 import { Image, Space } from 'antd';
 import { TransparentButton } from './TransparentButton';
-import { TIMERS_GAMES } from 'utils/constants';
+import { ASSISTED_GAMES } from 'utils/constants';
 import { useNavigate, useParams } from 'react-router-dom';
 import clsx from 'clsx';
 
-const timers = Object.values(TIMERS_GAMES);
+const timers = Object.values(ASSISTED_GAMES);
 
-export function TimerSelection() {
+export function AssistantSelection() {
   const { timerId } = useParams();
   const isCondensed = !!timerId;
   const navigate = useNavigate();

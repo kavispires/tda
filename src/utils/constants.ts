@@ -114,7 +114,17 @@ export const ASSISTED_GAMES: Record<string, Game> = {
     id: GAMES.TESTEMUNHA_OCULAR,
     title: 'Testemunha Ocular',
     banner: `${PUBLIC_URL.IMAGES}/testemunha-ocular-pt.jpg`,
-    rules: [],
+    rules: [
+      'Faça uma grade de 3x4 suspeitos. Um jogador será a testemunha e embaralha as cartas respostas e escolhe uma que ,indica o culpado (ou use o app para sortear)',
+      'Modo Perguntas:',
+      'Cada rodada um jogador recebe uma carta e lê a pergunta em voz alta e a testemunha deve responder sim ou não de acordo com o que ela acha se o culpado tem ou não a ver com a pergunta.',
+      'Então, os jogadores devem eliminar um dos suspeitos que NÃO seja o culpado. O objetivo é que a última carta na mesa,seja o suspeito.',
+      'Se a carta selecionada pelos jogadores não é o culpado, eles podem eliminar mais ou ir para a próxima pergunta. A cada pergunta, pelo menos um suspeito deve ser liberado.',
+      'Modo Similaridade:',
+      'Ao invés de usar perguntas, a testemunha tem uma mão de 5 cartas suspeitos extras. E deve selecionar uma como dica para os outros jogadores.',
+      'Se a carta tem a ver, coloque-a no lado sim, se não, coloque-a no lado não.',
+      'A cada rodada os jogadores devem obrigatoriamente eliminar 1, 2, 3, 4 e 1 suspeitos.',
+    ],
   },
 };
 

@@ -3,6 +3,7 @@ import { AudioControls } from 'components/AudioControls';
 import { Content } from 'components/Content';
 import { Icon } from 'components/Icon';
 import { Item } from 'components/Sprites';
+import { TextFit } from 'components/TextFit';
 import { useSonhinhoBom } from 'context/SonhinhoBomProvider';
 import { useCardWidth } from 'hooks';
 import { DreamIcon, NightmareIcon, WrongIcon } from 'icons';
@@ -25,6 +26,8 @@ export function RoundScreen() {
 
   if (screen !== 'round') return <></>;
 
+  const iconSize = cardWidth / 4;
+
   return (
     <Content className="px-2">
       <Space direction="vertical" className="content content--center" ref={ref}>
@@ -41,24 +44,26 @@ export function RoundScreen() {
 
         <div className="s-item">
           <Item id={item.id} width={cardWidth} />
-          <pre className="s-item__name">{item.name}</pre>
+          <div className="s-item__name">
+            <TextFit text={item.name} />
+          </div>
         </div>
 
         <div className="s-controls">
           <button className="s-controls__button s-controls__button--incorrect" onClick={onIncorrectItem}>
-            <Icon icon={<NightmareIcon />} size={cardWidth / 4} />
+            <Icon icon={<NightmareIcon width={iconSize} />} size={iconSize} />
             <span className="s-controls__count">{incorrect.length}</span>
             Incorreto
           </button>
 
           <button className="s-controls__button s-controls__button--correct" onClick={onCorrectItem}>
-            <Icon icon={<DreamIcon />} size={cardWidth / 4} />
+            <Icon icon={<DreamIcon width={iconSize} />} size={iconSize} />
             <span className="s-controls__count">{correct.length}</span>
             Correto
           </button>
 
           <button className="s-controls__button s-controls__button--skip" onClick={onSkip}>
-            <Icon icon={<WrongIcon />} size={cardWidth / 6} />
+            <Icon icon={<WrongIcon width={iconSize} />} size={iconSize} />
             <span className="s-controls__count">{skip.length}</span>
             Pular
           </button>

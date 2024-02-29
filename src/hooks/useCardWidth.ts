@@ -19,7 +19,7 @@ export function useCardWidth(
     maxWidth?: number;
     margin?: number;
   }
-): [number, Ref<HTMLDivElement>] {
+): [number, Ref<HTMLDivElement>, number] {
   const [ref, { width }] = useMeasure();
   const { gap = 32, minWidth = 120, maxWidth = 300, margin = 0 } = options ?? {};
 
@@ -30,5 +30,5 @@ export function useCardWidth(
 
   const containerRef = ref as Ref<HTMLDivElement>;
 
-  return [cardWidth, containerRef];
+  return [cardWidth, containerRef, width];
 }

@@ -1,4 +1,4 @@
-import { Button, Space, Tooltip, Typography } from 'antd';
+import { Button, Collapse, CollapseProps, Flex, Space, Tooltip, Typography } from 'antd';
 import { Content } from 'components/Content';
 import { Icon } from 'components/Icon';
 import { Item } from 'components/Sprites';
@@ -47,63 +47,151 @@ export function ResultScreen() {
   const sandmanScore = getSandmanScore(fairyScore, boogeymanScore);
   const dreamerScore = getDreamerScore(fairyScore, recollection);
 
+  const items: CollapseProps['items'] = [
+    {
+      key: 'fairies',
+      label: (
+        <div className="sonhinho-result">
+          <span className="sonhinho-result__title sonhinho-result__title--fairies">
+            <Icon icon={<DreamIcon />} /> Fadas
+          </span>
+          <span className="sonhinho-result__score sonhinho-result__title--fairies">{fairyScore}</span>
+        </div>
+      ),
+      children: (
+        <Flex
+          wrap="wrap"
+          gap={3}
+          justify="center"
+          className="sonhinho-result__list sonhinho-result__title--fairies"
+        >
+          {correct.map((item) => (
+            <Item id={item.id} key={item.id} width={cardWidth} />
+          ))}
+        </Flex>
+      ),
+    },
+    {
+      key: 'boogeymen',
+      label: (
+        <div className="sonhinho-result">
+          <span className="sonhinho-result__title sonhinho-result__title--boogeymen">
+            <Icon icon={<NightmareIcon />} /> Bichos-papão
+          </span>
+          <span className="sonhinho-result__score  sonhinho-result__title--boogeymen">{boogeymanScore}</span>
+        </div>
+      ),
+      children: (
+        <Flex
+          wrap="wrap"
+          gap={3}
+          justify="center"
+          className="sonhinho-result__list sonhinho-result__title--boogeymen"
+        >
+          {incorrect.map((item) => (
+            <Item id={item.id} key={item.id} width={cardWidth} />
+          ))}
+        </Flex>
+      ),
+    },
+    {
+      key: 'sandmen',
+      label: (
+        <div className="sonhinho-result">
+          <span className="sonhinho-result__title sonhinho-result__title--sandmen">
+            <Icon icon={<BalanceIcon />} /> Senhores dos Sonhos
+          </span>
+          <Tooltip title={sandmanScore.message}>
+            <span className="sonhinho-result__score  sonhinho-result__title--sandmen">
+              {sandmanScore.score}
+            </span>
+          </Tooltip>
+        </div>
+      ),
+      children: (
+        <Flex
+          wrap="wrap"
+          gap={3}
+          justify="center"
+          className="sonhinho-result__list sonhinho-result__title--sandmen"
+        >
+          {fairyScore === boogeymanScore && (
+            <Typography.Paragraph>As duas pilhas ficaram balanceadas 2 pontos bônus</Typography.Paragraph>
+          )}
+          {Math.abs(fairyScore - boogeymanScore) > 1 && (
+            <Typography.Paragraph>
+              A diferença entre as pilhas é maior que 1, então o Senhor dos Sonhos ganha a menor pilha
+            </Typography.Paragraph>
+          )}
+          {Math.abs(fairyScore - boogeymanScore) === 1 && (
+            <Typography.Paragraph>
+              A diferença entre as pilhas é apenas 1, então o Senhor dos Sonhos ganha a maior pilha
+            </Typography.Paragraph>
+          )}
+        </Flex>
+      ),
+    },
+    {
+      key: 'dreamer',
+      label: (
+        <div className="sonhinho-result">
+          <span className="sonhinho-result__title sonhinho-result__title--dreamer">
+            <Icon icon={<SleepingMaskIcon />} /> Sonhador
+          </span>
+          <Tooltip title={dreamerScore.message}>
+            <span className="sonhinho-result__score  sonhinho-result__title--dreamer">
+              {dreamerScore.score}
+            </span>
+          </Tooltip>
+        </div>
+      ),
+      children: (
+        <Flex
+          wrap="wrap"
+          gap={3}
+          justify="center"
+          className="sonhinho-result__list sonhinho-result__title--dreamer"
+        >
+          {Object.keys(recollection).map((key) => (
+            <Item id={key} key={key} width={cardWidth} />
+          ))}
+        </Flex>
+      ),
+    },
+    {
+      key: 'skips',
+      label: (
+        <div className="sonhinho-result">
+          <span className="sonhinho-result__title sonhinho-result__title--skips">
+            <Icon icon={<WrongIcon />} /> Quem fez esses itens pularem devem perder 1 ponto
+          </span>
+        </div>
+      ),
+      children: (
+        <Flex
+          wrap="wrap"
+          gap={3}
+          justify="center"
+          className="sonhinho-result__list sonhinho-result__title--skips"
+        >
+          <span className="sonhinho-result__skips  sonhinho-result__title--skips">
+            {skip.map((item) => (
+              <Item id={item.id} key={item.id} width={cardWidth} />
+            ))}
+          </span>
+        </Flex>
+      ),
+    },
+  ];
+
   return (
     <Content centered>
       <Space direction="vertical" className="content content--center">
         <Typography.Title level={2}>Resultado</Typography.Title>
 
-        <div className="sonhinho-results">
-          <div className="sonhinho-result">
-            <span className="sonhinho-result__title sonhinho-result__title--fairies">
-              <Icon icon={<DreamIcon />} /> Fadas
-            </span>
-            <span className="sonhinho-result__score sonhinho-result__title--fairies">{fairyScore}</span>
-          </div>
+        <Collapse items={items} className="sonhinho-results" ghost />
 
-          <div className="sonhinho-result">
-            <span className="sonhinho-result__title sonhinho-result__title--boogeymen">
-              <Icon icon={<NightmareIcon />} /> Bichos-papão
-            </span>
-            <span className="sonhinho-result__score  sonhinho-result__title--boogeymen">
-              {boogeymanScore}
-            </span>
-          </div>
-
-          <div className="sonhinho-result">
-            <span className="sonhinho-result__title sonhinho-result__title--sandmen">
-              <Icon icon={<BalanceIcon />} /> Senhores dos Sonhos
-            </span>
-            <Tooltip title={sandmanScore.message}>
-              <span className="sonhinho-result__score  sonhinho-result__title--sandmen">
-                {sandmanScore.score}
-              </span>
-            </Tooltip>
-          </div>
-
-          <div className="sonhinho-result">
-            <span className="sonhinho-result__title sonhinho-result__title--dreamer">
-              <Icon icon={<SleepingMaskIcon />} /> Sonhador
-            </span>
-            <Tooltip title={dreamerScore.message}>
-              <span className="sonhinho-result__score  sonhinho-result__title--dreamer">
-                {dreamerScore.score}
-              </span>
-            </Tooltip>
-          </div>
-
-          <div className="sonhinho-result">
-            <span className="sonhinho-result__title sonhinho-result__title--skips">
-              <Icon icon={<WrongIcon />} /> Quem fez esses itens pularem devem perder 1 ponto
-            </span>
-            <span className="sonhinho-result__skips  sonhinho-result__title--skips">
-              {skip.map((item) => (
-                <Item id={item.id} width={cardWidth} />
-              ))}
-            </span>
-          </div>
-        </div>
-
-        <Space className="center">
+        <Space className="center m-6">
           <Button type="primary" size="large" onClick={onNewRound}>
             End
           </Button>
